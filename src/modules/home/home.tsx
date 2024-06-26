@@ -6,6 +6,7 @@ import Branding from "@/modules/home/features/branding";
 import Benefits from "@/modules/home/features/benefits";
 import FeatureHighlight from "@/modules/home/features/featureHighlight";
 import Pricing from "@/modules/home/features/pricing";
+import Footer from "@/shared/widgets/footer/footer";
 
 const Home = () => {
   return (
@@ -21,6 +22,8 @@ const Home = () => {
       <FeatureHighlight />
 
       <Pricing />
+
+      <Footer />
     </div>
   );
 };
