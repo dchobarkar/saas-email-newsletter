@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 
 import Logo from "@/shared/widgets/header/logo";
+import NavItems from "@/shared/widgets/header/navItems";
 
 const Header = () => {
   return (
@@ -10,6 +11,10 @@ const Header = () => {
         <Link href={"/"}>
           <Logo />
         </Link>
+      </div>
+
+      <div>
+        <NavItems />
       </div>
     </header>
   );
