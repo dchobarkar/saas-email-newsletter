@@ -5,6 +5,7 @@ import Banner from "@/modules/home/features/banner";
 import Branding from "@/modules/home/features/branding";
 import Benefits from "@/modules/home/features/benefits";
 import FeatureHighlight from "@/modules/home/features/featureHighlight";
+import Pricing from "@/modules/home/features/pricing";
 
 const Home = () => {
   return (
@@ -18,6 +19,8 @@ const Home = () => {
       <Benefits />
 
       <FeatureHighlight />
+
+      <Pricing />
     </div>
   );
 };
