@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import Logo from "@/shared/widgets/header/logo";
 import NavItems from "@/shared/widgets/header/navItems";
+import Toolbar from "@/shared/widgets/header/toolbar";
 
 const Header = () => {
   return (
@@ -15,6 +16,10 @@ const Header = () => {
 
       <div>
         <NavItems />
+      </div>
+
+      <div className="flex items-center gap-3">
+        <Toolbar />
       </div>
     </header>
   );
