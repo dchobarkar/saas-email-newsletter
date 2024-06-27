@@ -1,5 +1,6 @@
 "use client";
 
+import { Toaster } from "react-hot-toast";
 import { usePathname } from "next/navigation";
 import { NextUIProvider } from "@nextui-org/react";
 import { useUser } from "@clerk/nextjs";
@@ -43,6 +44,7 @@ export default function Providers({ children }: ProviderProps) {
       ) : (
         <>{children}</>
       )}
+      <Toaster position="top-center" reverseOrder={false} />
     </NextUIProvider>
   );
 }
