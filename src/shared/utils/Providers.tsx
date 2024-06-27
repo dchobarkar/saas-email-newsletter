@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import { NextUIProvider } from "@nextui-org/react";
 import { useUser } from "@clerk/nextjs";
 
+import DashboardSidebar from "@/shared/widgets/dashboard/dashboard.sidebar";
+
 interface ProviderProps {
   children: React.ReactNode;
 }
@@ -32,7 +34,10 @@ export default function Providers({ children }: ProviderProps) {
     <NextUIProvider>
       {isPathAllowed(pathName) ? (
         <div className="w-full flex">
-          <div className="w-[290px] h-screen overflow-y-scroll"></div>
+          <div className="w-[290px] h-screen overflow-y-scroll">
+            <DashboardSidebar />
+          </div>
+
           {children}
         </div>
       ) : (
