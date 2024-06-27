@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Button } from "@nextui-org/react";
 import { useClerk } from "@clerk/nextjs";
+import { Button } from "@nextui-org/react";
 
+import { getEmails } from "@/actions/get.email";
 import { ICONS } from "@/shared/utils/icons";
 
 const Write = () => {
@@ -24,6 +25,23 @@ const Write = () => {
       router.push(`/dashboard/new-email?subject=${formattedTitle}`);
     }
   };
+
+  useEffect(() => {
+    FindEmails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
+
+  const FindEmails = async () => {
+    await getEmails({ newsLetterOwnerId: user?.id! })
+      .then((res) => {
+        setEmails(res);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  const deleteHanlder = async (id: string) => {};
 
   return (
     <div className="w-full flex p-5 flex-wrap gap-6 relative">
@@ -46,7 +64,10 @@ const Write = () => {
               key={i?._id}
               className="w-[200px] h-[200px] z-[0] relative bg-slate-50 flex flex-col items-center justify-center rounded border cursor-pointer"
             >
-              <span className="absolute block z-20 right-2 top-2 text-2xl cursor-pointer">
+              <span
+                className="absolute block z-20 right-2 top-2 text-2xl cursor-pointer"
+                onClick={() => deleteHanlder(i?._id)}
+              >
                 {ICONS.delete}
               </span>
 

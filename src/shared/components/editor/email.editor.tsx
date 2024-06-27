@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import EmailEditor, { EditorRef, EmailEditorProps } from "react-email-editor";
 import { useRouter } from "next/navigation";
@@ -9,6 +9,7 @@ import { useClerk } from "@clerk/nextjs";
 
 import { DefaultJsonData } from "@/assets/mails/default";
 import { saveEmail } from "@/actions/save.email";
+import { GetEmailDetails } from "@/actions/get.email-details";
 
 const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
   const [loading, setLoading] = useState(true);
@@ -25,6 +26,11 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
       setJsonData(design);
     });
   };
+
+  useEffect(() => {
+    getEmailDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [user]);
 
   const onReady: EmailEditorProps["onReady"] = () => {
     const unlayer: any = emailEditorRef.current?.editor;
@@ -47,6 +53,18 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
     });
   };
 
+  const getEmailDetails = async () => {
+    await GetEmailDetails({
+      title: subjectTitle,
+      newsLetterOwnerId: user?.id!,
+    }).then((res: any) => {
+      if (res) {
+        setJsonData(JSON.parse(res?.content));
+      }
+      setLoading(false);
+    });
+  };
+
   return (
     <>
       {!loading && (
@@ -56,7 +74,6 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
             ref={emailEditorRef}
             onReady={onReady}
           />
-
           <div className="absolute bottom-0 flex items-center justify-end gap-4 right-0 w-full border-t p-3">
             <Button
               className="bg-transparent cursor-pointer flex items-center gap-1 text-black border border-[#00000048] text-lg rounded-lg"
