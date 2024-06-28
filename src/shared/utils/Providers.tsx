@@ -6,6 +6,7 @@ import { NextUIProvider } from "@nextui-org/react";
 import { useUser } from "@clerk/nextjs";
 
 import DashboardSidebar from "@/shared/widgets/dashboard/dashboard.sidebar";
+import { addStripe } from "@/actions/add.stripe";
 
 interface ProviderProps {
   children: React.ReactNode;
@@ -13,7 +14,7 @@ interface ProviderProps {
 
 export default function Providers({ children }: ProviderProps) {
   const pathName = usePathname();
-  const { isLoaded } = useUser();
+  const { isLoaded, user } = useUser();
 
   const isPathAllowed = (pathName: string) => {
     if (
@@ -29,7 +30,12 @@ export default function Providers({ children }: ProviderProps) {
     return true;
   };
 
+  const isStripeCustomerIdHas = async () => {
+    await addStripe();
+  };
+
   if (!isLoaded) return null;
+  if (user) isStripeCustomerIdHas();
 
   return (
     <NextUIProvider>
