@@ -16,24 +16,21 @@ export const subscribe = async ({
   try {
     await connectDb();
 
-    // Fetch all users
+    // Check if user is correct
     const allUsers = await clerkClient.users.getUserList();
-
-    // Get newsletter owener
     const newsLetterOwner = allUsers.find(
       (user: any) => user.username === username
     );
-
     if (!newsLetterOwner) throw Error("Username is not vaild!");
 
-    // Check if subscriber already exists
-    const isSubscriberExist = await Subscriber.findOne({
+    // Check if email already exists
+    const isEmailExist = await Subscriber.findOne({
       email,
       newsLetterOwnerId: newsLetterOwner?.id,
     });
-    if (isSubscriberExist) return { error: "Email already exists!" };
+    if (isEmailExist) return { error: "Email already exists!" };
 
-    // Validate email
+    // Check if the email is valid
     const validationResponse = await validateEmail({ email });
     if (validationResponse.status === "invalid")
       return { error: "Email not valid!" };

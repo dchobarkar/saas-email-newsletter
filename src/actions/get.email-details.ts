@@ -17,6 +17,7 @@ export const GetEmailDetails = async ({
       title,
       newsLetterOwnerId,
     });
+
     return email;
   } catch (error) {
     console.log(error);

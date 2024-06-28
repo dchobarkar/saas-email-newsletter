@@ -10,15 +10,14 @@ export const addStripe = async () => {
   try {
     await connectDb();
 
+    // Check if the user has membership
     const user = await currentUser();
     const membership = await Membership.findOne({ userId: user?.id! });
-
     if (membership) return;
 
     const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
       apiVersion: "2024-06-20",
     });
-
     await stripe.customers
       .create({
         email: user?.emailAddresses[0].emailAddress,

@@ -12,6 +12,7 @@ export const getEmails = async ({
     await connectDb();
 
     const emails = await Email.find({ newsLetterOwnerId });
+
     return emails;
   } catch (error) {
     console.log(error);

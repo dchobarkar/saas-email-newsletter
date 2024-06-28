@@ -1,7 +1,7 @@
 "use server";
 
-import Email from "@/models/email.model";
 import { connectDb } from "@/shared/libs/db";
+import Email from "@/models/email.model";
 
 export const saveEmail = async ({
   title,
@@ -23,17 +23,15 @@ export const saveEmail = async ({
       await Email.findByIdAndUpdate(email._id, {
         content,
       });
-
       return { message: "Email updated successfully!" };
-    } else {
-      await Email.create({
-        title,
-        content,
-        newsLetterOwnerId,
-      });
-
-      return { message: "Email saved successfully!" };
     }
+
+    await Email.create({
+      title,
+      content,
+      newsLetterOwnerId,
+    });
+    return { message: "Email saved successfully!" };
   } catch (error) {
     console.log(error);
   }

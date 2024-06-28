@@ -9,11 +9,11 @@ export const getMemberShip = async () => {
   try {
     await connectDb().then(async (res) => {
       const user = await currentUser();
-
       if (user) {
         const membership = await Membership.findOne({
           userId: user?.id,
         });
+
         return membership;
       }
     });

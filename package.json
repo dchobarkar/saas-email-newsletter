@@ -14,9 +14,11 @@
     "@mui/x-data-grid": "^7.7.1",
     "@nextui-org/react": "^2.4.2",
     "@stripe/stripe-js": "^4.0.0",
+    "@types/jsonwebtoken": "^9.0.6",
     "aws-sdk": "^2.1650.0",
     "framer-motion": "^11.2.12",
     "jotai": "^2.8.3",
+    "js-cookie": "^3.0.5",
     "mongoose": "^8.4.4",
     "next": "14.2.4",
     "nodemailer": "^6.9.14",
@@ -32,6 +34,7 @@
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20",
     "@types/nodemailer": "^6.4.15",
     "@types/react": "^18",
