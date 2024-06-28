@@ -17,7 +17,6 @@ const Page = () => {
     e.preventDefault();
 
     setLoading(true);
-
     await subscribe({ email: value, username })
       .then((res) => {
         setLoading(false);
@@ -29,7 +28,6 @@ const Page = () => {
         console.log(error);
         setLoading(false);
       });
-
     setValue("");
   };
 

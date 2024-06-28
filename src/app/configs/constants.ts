@@ -46,7 +46,7 @@ export const freePlan: PlanType[] = [
     title: "Custom Newsletter",
   },
   {
-    title: "Newsletter Analytics",
+    title: "Newsletter Snalytics",
   },
 ];
 
@@ -127,17 +127,17 @@ export const sideBarBottomItems: DashboardSideBarTypes[] = [
   },
 ];
 
-export const subscribersData: SubscribersDataTypes[] = [
+export const subscribersData: subscribersDataTypes[] = [
   {
     _id: "64f717a45331088de2ce886c",
-    email: "programmerdchobarkar@gmail.com",
+    email: "dchobarkar@gmail.com",
     createdAt: "5Feb 2024",
     source: "DarshanWebDev website",
     status: "subscribed",
   },
   {
     _id: "64f717a45331088de2ce886c",
-    email: "support@darshanwebdev.com",
+    email: "support@codeacademy.com",
     createdAt: "8Feb 2024",
     source: "External website",
     status: "subscribed",

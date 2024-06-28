@@ -13,13 +13,13 @@ const webhookHandler = async (req: NextRequest) => {
   try {
     const buf = await req.text();
     const sig = req.headers.get("stripe-signature")!;
-
     let event: Stripe.Event;
 
     try {
       event = stripe.webhooks.constructEvent(buf, sig, webhookSecret);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : "Unknown error";
+
       // On error, log and return the error message.
       if (err! instanceof Error) console.log(err);
       console.log(`❌ Error message: ${errorMessage}`);
@@ -37,18 +37,17 @@ const webhookHandler = async (req: NextRequest) => {
     // Successfully constructed event.
     console.log("✅ Success:", event.id);
 
-    // getting to the data we want from the event
+    // Get to the data we want from the event
     const subscription = event.data.object as Stripe.Subscription;
     const itemId: any = subscription.items.data[0].price.product;
 
     // Fetch the product (plan) details
     const product = await stripe.products.retrieve(itemId);
-
     const planName = product.name;
 
     switch (event.type) {
       case "customer.subscription.created":
-        // customer subscription created
+        // Customer subscription created
         const membership = await Membership.findOne({
           stripeCustomerId: subscription.customer,
         });
@@ -62,8 +61,9 @@ const webhookHandler = async (req: NextRequest) => {
           );
         }
         break;
+
       case "customer.subscription.deleted":
-        // subscription deleted
+        // Subscription deleted
         break;
 
       default:

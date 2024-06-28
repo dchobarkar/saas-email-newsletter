@@ -1,4 +1,4 @@
-"use-client";
+"use client";
 
 import { SignUp } from "@clerk/nextjs";
 
