@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useClerk } from "@clerk/nextjs";
 import { Button } from "@nextui-org/react";
 
+import { deleteEmail } from "@/actions/delete.email";
 import { getEmails } from "@/actions/get.email";
 import { ICONS } from "@/shared/utils/icons";
 
@@ -18,9 +19,9 @@ const Write = () => {
   const { user } = useClerk();
 
   const handleCreate = () => {
-    if (emailTitle.length === 0) {
+    if (emailTitle.length === 0)
       toast.error("Enter the email subject to continue!");
-    } else {
+    else {
       const formattedTitle = emailTitle.replace(/\s+/g, "-").replace(/&/g, "-");
       router.push(`/dashboard/new-email?subject=${formattedTitle}`);
     }
@@ -41,7 +42,11 @@ const Write = () => {
       });
   };
 
-  const deleteHanlder = async (id: string) => {};
+  const deleteHanlder = async (id: string) => {
+    await deleteEmail({ emailId: id }).then((res) => {
+      FindEmails();
+    });
+  };
 
   return (
     <div className="w-full flex p-5 flex-wrap gap-6 relative">
@@ -70,7 +75,6 @@ const Write = () => {
               >
                 {ICONS.delete}
               </span>
-
               <Link
                 href={`/dashboard/new-email?subject=${formattedTitle}`}
                 className="text-xl"
@@ -92,7 +96,6 @@ const Write = () => {
                 {ICONS.cross}
               </span>
             </div>
-
             <h5 className="text-2xl">Enter your Email subject</h5>
 
             <input

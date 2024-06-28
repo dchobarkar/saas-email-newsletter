@@ -1,8 +1,15 @@
 import { Slider } from "@nextui-org/slider";
+import { useRouter } from "next/navigation";
 
+import useSubscribersData from "@/shared/hooks/useSubscribersData";
 import { ICONS } from "@/shared/utils/icons";
 
 const UserPlan = () => {
+  const { data, loading } = useSubscribersData();
+  const history = useRouter();
+
+  const handleManage = async () => {};
+
   return (
     <div className="w-full my-3 p-3 bg-[#FDF1F8] rounded hover:shadow-xl cursor-pointer">
       <div className="w-full flex items-center">
@@ -24,7 +31,9 @@ const UserPlan = () => {
         className="max-w-md"
       />
 
-      <h6 className="text-[#831743]">0 of 2500 added</h6>
+      <h6 className="text-[#831743]">
+        {loading ? "..." : data?.length} of added
+      </h6>
     </div>
   );
 };

@@ -10,6 +10,7 @@ import { useClerk } from "@clerk/nextjs";
 import { DefaultJsonData } from "@/assets/mails/default";
 import { saveEmail } from "@/actions/save.email";
 import { GetEmailDetails } from "@/actions/get.email-details";
+import { sendEmail } from "@/shared/utils/email.sender";
 
 const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
   const [loading, setLoading] = useState(true);
@@ -24,6 +25,14 @@ const Emaileditor = ({ subjectTitle }: { subjectTitle: string }) => {
     unlayer?.exportHtml(async (data) => {
       const { design, html } = data;
       setJsonData(design);
+      await sendEmail({
+        userEmail: ["dchobarkar@gmail.com"],
+        subject: subjectTitle,
+        content: html,
+      }).then((res) => {
+        toast.success("Email sent successfully!");
+        history.push("/dashboard/write");
+      });
     });
   };
 
