@@ -6,6 +6,11 @@ import { growPlan, freePlan, scalePlan } from "@/app/configs/constants";
 import { stripeSubscribe } from "@/actions/stripe.subscribe";
 import { ICONS } from "@/shared/utils/icons";
 
+const growMonthly = " ";
+const growYearly = " ";
+const scaleMonthly = " ";
+const scaleYearly = " ";
+
 const PricingCard = ({ active }: { active: string }) => {
   const { user } = useUser();
   const history = useRouter();
@@ -122,10 +127,7 @@ const PricingCard = ({ active }: { active: string }) => {
           className="w-full text-xl !py-6"
           onClick={() =>
             handleSubscription({
-              price:
-                active === "Monthly"
-                  ? process.env.GROW_MONTHLY
-                  : process.env.GROW_YEARLY,
+              price: active === "Monthly" ? growMonthly : growYearly,
             })
           }
         >
@@ -186,10 +188,7 @@ const PricingCard = ({ active }: { active: string }) => {
           className="w-full text-xl !py-6"
           onClick={() =>
             handleSubscription({
-              price:
-                active === "Monthly"
-                  ? process.env.SCALE_MONTHLY
-                  : process.env.SCALE_YEARLY,
+              price: active === "Monthly" ? scaleMonthly : scaleYearly,
             })
           }
         >
