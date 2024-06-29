@@ -127,10 +127,10 @@ export const sideBarBottomItems: DashboardSideBarTypes[] = [
   },
 ];
 
-export const subscribersData: subscribersDataTypes[] = [
+export const subscribersData: SubscribersDataTypes[] = [
   {
     _id: "64f717a45331088de2ce886c",
-    email: "dchobarkar@gmail.com",
+    email: "admin@darshanwebdev.com",
     createdAt: "5Feb 2024",
     source: "DarshanWebDev website",
     status: "subscribed",
