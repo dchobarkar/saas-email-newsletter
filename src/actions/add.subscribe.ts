@@ -17,7 +17,9 @@ export const subscribe = async ({
     await connectDb();
 
     // Check if user is correct
-    const allUsers = await clerkClient.users.getUserList();
+    let allUsers: any = [];
+    const tempUsers = await clerkClient.users.getUserList();
+    if (tempUsers) allUsers = [tempUsers];
     const newsLetterOwner = allUsers.find(
       (user: any) => user.username === username
     );
