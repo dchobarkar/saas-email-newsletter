@@ -1,9 +1,8 @@
-import React from "react";
 import Link from "next/link";
 
-import Logo from "@/shared/widgets/header/logo";
-import NavItems from "@/shared/widgets/header/navItems";
-import Toolbar from "@/shared/widgets/header/toolbar";
+import Logo from "./logo";
+import NavItems from "./navItems";
+import Toolbar from "./toolbar";
 
 const Header = () => {
   return (

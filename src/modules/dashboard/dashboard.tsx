@@ -1,6 +1,4 @@
-import React from "react";
-
-import Main from "@/modules/dashboard/elements/main/main";
+import Main from "./elements/main/main";
 
 const Dashboard = () => {
   return <Main />;

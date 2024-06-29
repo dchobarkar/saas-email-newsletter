@@ -1,5 +1,6 @@
-import useSettingsFilter from "@/shared/hooks/useSettingsFilter";
 import { Tab, Tabs } from "@nextui-org/react";
+
+import useSettingsFilter from "@/shared/hooks/useSettingsFilter";
 
 const SettingsTab = () => {
   const { activeItem, setActiveItem } = useSettingsFilter();

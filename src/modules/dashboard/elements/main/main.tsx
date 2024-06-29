@@ -65,6 +65,7 @@ const Main = () => {
           {/* resources */}
           <div>
             <h5 className="text-xl font-medium">Resources</h5>
+
             <div className="w-full bg-white border rounded p-5 my-3">
               {/* home page url */}
               <div>
@@ -97,8 +98,8 @@ const Main = () => {
             <h5 className="font-medium">Tutorials</h5>
 
             <p className="text-sm opacity-[.7]">
-              Learn how to get started on becodemy and utilize all our features,
-              directly from the becodemy team.
+              Learn how to get started on DarshanWebDev and utilize all our
+              features, directly from the DarshanWebDev team.
             </p>
 
             <br />

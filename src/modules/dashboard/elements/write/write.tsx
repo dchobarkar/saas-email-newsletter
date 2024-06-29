@@ -60,26 +60,27 @@ const Write = () => {
 
       {/* saved emails */}
       {emails &&
-        emails.map((i: any) => {
-          const formattedTitle = i?.title
+        emails.map((emailData: any) => {
+          const formattedTitle = emailData?.title
             ?.replace(/\s+/g, "-")
             .replace(/&/g, "-");
           return (
             <div
-              key={i?._id}
+              key={emailData?._id}
               className="w-[200px] h-[200px] z-[0] relative bg-slate-50 flex flex-col items-center justify-center rounded border cursor-pointer"
             >
               <span
                 className="absolute block z-20 right-2 top-2 text-2xl cursor-pointer"
-                onClick={() => deleteHanlder(i?._id)}
+                onClick={() => deleteHanlder(emailData?._id)}
               >
                 {ICONS.delete}
               </span>
+
               <Link
                 href={`/dashboard/new-email?subject=${formattedTitle}`}
                 className="text-xl"
               >
-                {i.title}
+                {emailData.title}
               </Link>
             </div>
           );
@@ -96,6 +97,7 @@ const Write = () => {
                 {ICONS.cross}
               </span>
             </div>
+
             <h5 className="text-2xl">Enter your Email subject</h5>
 
             <input

@@ -21,7 +21,6 @@ const SubscribersChart = () => {
   const { subscribersData, loading } = useSubscribersAnalytics();
 
   const data: subscribersAnalyticsData[] = [];
-
   subscribersData &&
     subscribersData?.last7Months?.forEach((item: subscribersAnalyticsData) => {
       data.push({

@@ -7,7 +7,7 @@ import { DataGrid } from "@mui/x-data-grid";
 import useSubscribersData from "@/shared/hooks/useSubscribersData";
 
 const SubscribersData = () => {
-  const { data, loading } = useSubscribersData();
+  const { data } = useSubscribersData();
 
   const columns = [
     { field: "id", headerName: "ID", flex: 0.5 },
@@ -29,14 +29,13 @@ const SubscribersData = () => {
   ];
 
   const rows: any = [];
-
-  data?.forEach((i: SubscribersDataTypes) => {
+  data?.forEach((sbData: SubscribersDataTypes) => {
     rows.push({
-      id: i?._id,
-      email: i?.email,
-      createdAt: format(i?.createdAt),
-      source: i?.source,
-      status: i?.status,
+      id: sbData?._id,
+      email: sbData?.email,
+      createdAt: format(sbData?.createdAt),
+      source: sbData?.source,
+      status: sbData?.status,
     });
   });
 

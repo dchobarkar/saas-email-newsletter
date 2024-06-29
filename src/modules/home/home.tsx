@@ -1,7 +1,5 @@
-import React from "react";
-
 import Header from "@/shared/widgets/header/header";
-import Banner from "@/modules/home/elements/banner";
+import Banner from "./elements/banner";
 import Branding from "@/modules/home/elements/branding";
 import Benefits from "@/modules/home/elements/benefits";
 import FeatureHighlight from "@/modules/home/elements/featureHighlight";

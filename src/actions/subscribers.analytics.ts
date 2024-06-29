@@ -1,7 +1,7 @@
 "use server";
 
 import Subscriber from "@/models/subscriber.model";
-import { generateAnalyticsData } from "@/shared/utils/analytics.generator";
+import { generateAnalyticsData } from "@/shared/utils/analyticsGenerator";
 
 export const subscribersAnalytics = async () => {
   try {

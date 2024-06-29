@@ -11,7 +11,7 @@ import useSettingsFilter from "@/shared/hooks/useSettingsFilter";
 import {
   generateApiKey,
   regenerateApiKey,
-} from "@/shared/utils/token.generator";
+} from "@/shared/utils/tokenGenerator";
 import { ICONS } from "@/shared/utils/icons";
 
 const Page = () => {

@@ -14,11 +14,12 @@ const DashboardOverViewCard = () => {
     subscribersData?.last7Months[subscribersData?.last7Months?.length - 2];
 
   let comparePercentage = 100;
-  if (previousLastMonthSubscribers.count > 0)
+  if (previousLastMonthSubscribers.count > 0) {
     comparePercentage =
       ((lastMonthSubscribers - previousLastMonthSubscribers) /
         previousLastMonthSubscribers) *
       100;
+  }
 
   return (
     <div className="w-full xl:py-4 flex bg-white border rounded">
@@ -46,7 +47,6 @@ const DashboardOverViewCard = () => {
 
         <div className="w-full flex items-center justify-between">
           <span className="font-medium pt-2">0</span>
-
           <div className="h-[30px] flex p-3 items-center bg-[#F3F4F6] rounded-full">
             <span className="text-xl">-</span>
             <span className="text-sm pl-1">0%</span>
@@ -64,7 +64,6 @@ const DashboardOverViewCard = () => {
 
         <div className="w-full flex items-center justify-between">
           <span className="font-medium pt-2">0</span>
-
           <div className="h-[30px] flex p-3 items-center bg-[#F3F4F6] rounded-full">
             <span className="text-xl">-</span>
             <span className="text-sm pl-1">0%</span>

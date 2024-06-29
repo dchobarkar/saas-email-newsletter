@@ -32,13 +32,11 @@ const UserPlan = () => {
           onClick={handleManage}
         >
           <span className="text-white text-xl">{ICONS.electric}</span>
-
           <span className="text-white text-sm">Upgrade</span>
         </div>
       </div>
 
       <h5 className="text-[#831743]">Total subscribers</h5>
-
       <Slider
         aria-label="Player progress"
         hideThumb={true}

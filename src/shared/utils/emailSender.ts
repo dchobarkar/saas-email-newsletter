@@ -1,5 +1,4 @@
 "use server";
-
 import * as AWS from "aws-sdk";
 import * as nodemailer from "nodemailer";
 
@@ -12,16 +11,16 @@ interface Props {
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
   secretAccessKey: process.env.AWS_SECRET_KEY_ID,
-  region: "us-east-1",
+  region: process.env.AWS_REGION,
 });
 
 AWS.config.getCredentials(function (error) {
   if (error) console.log(error.stack);
 });
 
-const ses = new AWS.SES({ apiVersion: "2010-12-01" });
+const ses = new AWS.SES({ apiVersion: "2024-06-20" });
 
-const adminMail = "dchobarkar@gmail.com";
+const adminMail = "contact@darshanwebdev.com";
 
 // Create a transporter of nodemailer
 const transporter = nodemailer.createTransport({

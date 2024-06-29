@@ -13,6 +13,7 @@ export const connectDb = async () => {
       // Disconnect the existing connection
       await mongoose.disconnect();
     }
+
     mongoose.set("autoCreate", true);
     mongoose.setDriver(driver);
 

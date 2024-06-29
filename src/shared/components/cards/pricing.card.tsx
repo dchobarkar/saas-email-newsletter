@@ -32,7 +32,7 @@ const PricingCard = ({ active }: { active: string }) => {
           <path
             fill="#fff"
             stroke="#3843D0"
-            strokeWidth="3"
+            stroke-width="3"
             d="M33.398 13.25a6.512 6.512 0 0 1 0 6.5l-4.887 8.487a6.512 6.512 0 0 1-5.643 3.263h-9.736a6.512 6.512 0 0 1-5.643-3.263L2.602 19.75a6.512 6.512 0 0 1 0-6.498l4.887-8.488A6.512 6.512 0 0 1 13.132 1.5h9.736a6.512 6.512 0 0 1 5.643 3.263l4.887 8.488Z"
           ></path>
         </svg>
@@ -58,7 +58,6 @@ const PricingCard = ({ active }: { active: string }) => {
         {freePlan.map((item: PlanType, index: number) => (
           <div key={index} className="flex w-full items-center py-4">
             <span className="text-xl">{ICONS.right}</span>
-
             <p className="pl-2 text-lg">{item.title}</p>
           </div>
         ))}
@@ -86,7 +85,7 @@ const PricingCard = ({ active }: { active: string }) => {
           <path
             fill="#fff"
             stroke="#3843D0"
-            strokeWidth="3"
+            stroke-width="3"
             d="M33.398 13.25a6.512 6.512 0 0 1 0 6.5l-4.887 8.487a6.512 6.512 0 0 1-5.643 3.263h-9.736a6.512 6.512 0 0 1-5.643-3.263L2.602 19.75a6.512 6.512 0 0 1 0-6.498l4.887-8.488A6.512 6.512 0 0 1 13.132 1.5h9.736a6.512 6.512 0 0 1 5.643 3.263l4.887 8.488Z"
           ></path>
         </svg>
@@ -112,7 +111,6 @@ const PricingCard = ({ active }: { active: string }) => {
         {growPlan.map((item: PlanType, index: number) => (
           <div key={index} className="flex w-full items-center py-4">
             <span className="text-xl">{ICONS.right}</span>
-
             <p className="pl-2 text-lg">{item.title}</p>
           </div>
         ))}
@@ -126,8 +124,8 @@ const PricingCard = ({ active }: { active: string }) => {
             handleSubscription({
               price:
                 active === "Monthly"
-                  ? "price_1OnaWFSA1WAzNgKlsGN6K4ZW"
-                  : "price_1Onbt8SA1WAzNgKlyrXYlJBG",
+                  ? process.env.GROW_MONTHLY
+                  : process.env.GROW_YEARLY,
             })
           }
         >
@@ -152,7 +150,7 @@ const PricingCard = ({ active }: { active: string }) => {
           <path
             fill="#fff"
             stroke="#3843D0"
-            strokeWidth="3"
+            stroke-width="3"
             d="M33.398 13.25a6.512 6.512 0 0 1 0 6.5l-4.887 8.487a6.512 6.512 0 0 1-5.643 3.263h-9.736a6.512 6.512 0 0 1-5.643-3.263L2.602 19.75a6.512 6.512 0 0 1 0-6.498l4.887-8.488A6.512 6.512 0 0 1 13.132 1.5h9.736a6.512 6.512 0 0 1 5.643 3.263l4.887 8.488Z"
           ></path>
         </svg>
@@ -167,7 +165,6 @@ const PricingCard = ({ active }: { active: string }) => {
           <h5 className="font-clashDisplay uppercase text-cyber-ink text-3xl">
             ${active === "Monthly" ? "99" : "84"} /month
           </h5>
-
           <p className="text-lg">Billed {active}</p>
         </div>
 
@@ -178,7 +175,6 @@ const PricingCard = ({ active }: { active: string }) => {
         {scalePlan.map((item: PlanType, index: number) => (
           <div key={index} className="flex w-full items-center py-4">
             <span className="text-xl">{ICONS.right}</span>
-
             <p className="pl-2 text-lg">{item.title}</p>
           </div>
         ))}
@@ -192,8 +188,8 @@ const PricingCard = ({ active }: { active: string }) => {
             handleSubscription({
               price:
                 active === "Monthly"
-                  ? "price_1On2H2SA1WAzNgKlV64Zj6gE"
-                  : "price_1Onf9gSA1WAzNgKlg8NLBP4r",
+                  ? process.env.SCALE_MONTHLY
+                  : process.env.SCALE_YEARLY,
             })
           }
         >

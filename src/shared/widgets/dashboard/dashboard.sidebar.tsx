@@ -1,5 +1,4 @@
 "use client";
-
 import { useUser } from "@clerk/nextjs";
 
 import { ICONS } from "@/shared/utils/icons";

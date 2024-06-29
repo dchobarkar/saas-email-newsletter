@@ -1,7 +1,7 @@
 "use server";
 
-import { currentUser } from "@clerk/nextjs";
 import jwt from "jsonwebtoken";
+import { currentUser } from "@clerk/nextjs/server";
 
 export const generateApiKey = async () => {
   const user = await currentUser();
