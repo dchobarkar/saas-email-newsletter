@@ -4,7 +4,7 @@ import { clerkClient } from "@clerk/nextjs/server";
 
 import { connectDb } from "@/shared/libs/db";
 import Subscriber from "@/models/subscriber.model";
-import { validateEmail } from "@/shared/utils/zeroBounceApi";
+import { validateEmail } from "@/shared/utils/ZeroBounceApi";
 
 export const subscribe = async ({
   email,

@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 import { connectDb } from "@/shared/libs/db";
 import Subscriber from "@/models/subscriber.model";
-import { validateEmail } from "@/shared/utils/zeroBounceApi";
+import { validateEmail } from "@/shared/utils/ZeroBounceApi";
 
 export async function POST(req: NextRequest, res: any) {
   try {
