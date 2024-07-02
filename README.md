@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# SaaS Email Newsletter
+
+This project is a SaaS email newsletter application built using Next.js. It features user authentication with Clerk, payment processing with Stripe, and includes analytics for clients. Additionally, it checks email validity before adding to the subscribers' list.
+
+## Table of Contents
+
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Getting Started](#getting-started)
+- [Running the Project](#running-the-project)
+- [Environment Variables](#environment-variables)
+- [License](#license)
+- [Contributing](#contributing)
+- [Contact](#contact)
+
+## Features
+
+- **User Authentication**: Secure authentication using Clerk.
+- **Payment Processing**: Integrated with Stripe for subscription plans.
+- **Email Validation**: Checks if the email is valid before adding to the subscribers' list.
+- **Analytics**: Provides analytics for subscriber data.
+- **Newsletter Management**: Create, design, and send newsletters to subscribers.
+
+## Technology Stack
+
+- **Frontend**: Next.js, TailwindCSS
+- **Authentication**: Clerk
+- **Payments**: Stripe
+- **Database**: Datastax Astra
+- **Email Validation**: Zerobounce
 
 ## Getting Started
 
-First, run the development server:
+To get started with the project, clone the repository and install the dependencies:
+
+```bash
+git clone https://github.com/dchobarkar/saas-email-newsletter.git
+cd saas-email-newsletter
+npm install
+```
+
+## Running the Project
+
+To run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Create a `.env.local` file in the root directory and add the following environment variables:
 
-## Learn More
+```plaintext
+NEXT_PUBLIC_WEBSITE_URL=<your-website-url>
+JWT_SECRET_KEY=<your-jwt-secret-key>
+STRIPE_SECRET_KEY=<your-stripe-secret-key>
+STRIPE_PUBLISHABLE_KEY=<your-stripe-publishable-key>
+STRIPE_WEBHOOK_SECRET=<your-stripe-webhook-secret>
+GROW_MONTHLY=<your-stripe-payment-url-for-grow-monthly-plan>
+GROW_YEARLY=<your-stripe-payment-url-for-grow-yearly-plan>
+SCALE_MONTHLY=<your-stripe-payment-url-for-scale-monthly-plan>
+SCALE_YEARLY=<your-stripe-payment-url-for-scale-yearly-plan>
+ASTRA_DB_API_ENDPOINT=<your-astra-database-api-endpoint>
+ASTRA_DB_APPLICATION_TOKEN=<your-astra-database-app-token>
+ZEROBOUNCE_API_KEY=<your-zerobounce-api-key>
+CLERK_SECRET_KEY=<your-clerk-secret-key>
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=<your-clerk-frontend-api>
+AWS_ACCESS_KEY_ID=<your-aws-access-key>
+AWS_SECRET_KEY_ID=<your-aws-secret-key>
+AWS_REGION=<your-aws-region>
+```
 
-To learn more about Next.js, take a look at the following resources:
+## License
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more information.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Contributing
 
-## Deploy on Vercel
+Contributions to this project are welcome. Follow these steps to contribute:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature/YourFeature`)
+3. Commit your changes (`git commit -m 'Add some feature'`)
+4. Push to the branch (`git push origin feature/YourFeature`)
+5. Open a pull request
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Contact
+
+Darshan Chobarkar - [@dchobarkar](https://www.linkedin.com/in/dchobarkar/) - [@barbatos\_\_08](https://twitter.com/barbatos__08) - contact@darshanwebdev.com
+
+Project Link: [https://github.com/dchobarkar/saas-email-newsletter](https://github.com/dchobarkar/saas-email-newsletter)
